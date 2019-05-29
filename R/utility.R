@@ -362,3 +362,10 @@ get_win_drive <- function(path) {
   drive <- vapply(drive, function(x) x[1], FUN.VALUE = character(1))
   return(drive)
 }
+
+# Only return the first line of a multi-line string(s)
+get_first_line <- function(x) {
+  split <- stringr::str_split(x, "\n")
+  first_lines <- vapply(split, function(x) x[1], character(1))
+  return(first_lines)
+}
